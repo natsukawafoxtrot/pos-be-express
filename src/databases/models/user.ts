@@ -1,8 +1,8 @@
-import { Entity, PrimaryKey, Property } from '@mikro-orm/core';
+import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { Role } from "./role.js";
 
 @Entity()
 export class User {
-
    @PrimaryKey()
    id!: number;
 
@@ -10,12 +10,11 @@ export class User {
    fullName!: string;
 
    @Property()
-   email!: string;
+   username!: string;
 
    @Property()
    password!: string;
 
-   @Property({ type: 'text' })
-   bio = '';
-
+   @ManyToOne({ entity: () => Role})
+   role!: Role;
 }
