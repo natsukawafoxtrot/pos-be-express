@@ -5,12 +5,12 @@ export class Unit {
   @PrimaryKey()
   id!: number;
 
-  @Property()
+  @Property({ length: 20 })
   name!: string;
 
-  @Property()
+  @Property({ length: 10 })
   abbreviation!: string;
 
-  @Property({ type: "boolean" })
-  isDecimal!: boolean;
+  @Property({ default: false, type: "boolean" })
+  isDecimal: boolean = false;
 }
