@@ -5,9 +5,9 @@ export class Category {
   @PrimaryKey()
   id!: number;
 
-  @Property()
+  @Property({ length: 100 })
   name!: string;
 
-  @Property()
-  description!: string;
+  @Property({ type: 'text', nullable: true })
+  description?: string;
 }
